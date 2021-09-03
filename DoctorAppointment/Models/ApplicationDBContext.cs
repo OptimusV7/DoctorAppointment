@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DoctorAppointment.Models
 {
-    public class ApplicationDBContext : IdentityDbContext
+    public class ApplicationDBContext : IdentityDbContext<ApplicationUser>
     {
         public ApplicationDBContext(DbContextOptions<ApplicationDBContext> options): base(options)
         {
