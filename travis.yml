@@ -1,0 +1,3 @@
+language: csharp
+solution: DoctorAppointment.sln
+dotnet: 5.0
