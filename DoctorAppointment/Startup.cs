@@ -33,6 +33,7 @@ namespace DoctorAppointment
             services.AddTransient<IAppointmentService, AppointmentService>();
 
             services.AddIdentity<ApplicationUser, IdentityRole>().AddEntityFrameworkStores<ApplicationDBContext>();
+            services.AddHttpContextAccessor();
             
         }
 
