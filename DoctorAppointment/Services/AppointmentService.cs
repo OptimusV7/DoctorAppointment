@@ -23,7 +23,7 @@ namespace DoctorAppointment.Services
                                Name = user.Name
                            }
                            ).ToList();
-
+            return users;
         }
 
         public List<PatientVM> GetPatientList()
