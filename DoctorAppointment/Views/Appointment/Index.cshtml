@@ -7,7 +7,7 @@
 
 <div class="row">
 
-    @*@if (TempData.ContainsKey("newAdminSignUp"))
+    @if (TempData.ContainsKey("newAdminSignUp"))
         {
             <div class=container>
                 <div class="alert alert-success alert-dismissable">
@@ -15,7 +15,7 @@
                     <strong>Account created for @TempData["newAdminSignUp"].ToString() </strong>
                 </div>
             </div>
-        }*@
+        }
 
     <div class="container">
         @if (User.IsInRole(DoctorAppointment.Utility.Helper.Admin))

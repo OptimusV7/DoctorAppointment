@@ -85,7 +85,7 @@ namespace DoctorAppointment.Controllers
                     {
                         TempData["newAdminSignUp"] = user.Name;
                     }
-                    return RedirectToAction("Index", "Home");
+                    return RedirectToAction("Index", "Appointment");
                 }
                 foreach (var error in result.Errors)
                 {
