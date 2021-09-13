@@ -64,14 +64,26 @@ namespace DoctorAppointment.Services
 
         }
 
-        public Task<int> ConfirmEvent(int id)
+        public async Task<int> ConfirmEvent(int id)
         {
-            throw new NotImplementedException();
+            var appointment = _db.Appointments.FirstOrDefault(x => x.Id == id);
+            if (appointment != null)
+            {
+                appointment.IsDoctorApproved = true;
+                return await _db.SaveChangesAsync();
+            }
+            return 0;
         }
 
-        public Task<int> Delete(int id)
+        public async Task<int> Delete(int id)
         {
-            throw new NotImplementedException();
+            var appointment = _db.Appointments.FirstOrDefault(x => x.Id == id);
+            if (appointment != null)
+            {
+                _db.Appointments.Remove(appointment);
+                return await _db.SaveChangesAsync();
+            }
+            return 0;
         }
 
         public List<AppointmentVM> DoctorsEventsById(string doctorId)
