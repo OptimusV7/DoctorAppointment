@@ -109,6 +109,7 @@ function onCloseModal() {
     $("#title").val('');
     $("#description").val('');
     $("#appointmentDate").val('');
+    $("#patientId").val('');
 
     $("#appointmentInput").modal("hide");
 }
