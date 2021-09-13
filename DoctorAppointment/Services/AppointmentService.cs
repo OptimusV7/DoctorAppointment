@@ -1,6 +1,7 @@
 ﻿using DoctorAppointment.Models;
 using DoctorAppointment.Models.ViewModels;
 using DoctorAppointment.Utility;
+using Microsoft.AspNetCore.Identity.UI.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,9 +12,11 @@ namespace DoctorAppointment.Services
     public class AppointmentService : IAppointmentService
     {
         private readonly ApplicationDBContext _db;
-        public AppointmentService(ApplicationDBContext db)
+        private readonly IEmailSender _emailSender;
+        public AppointmentService(ApplicationDBContext db, IEmailSender emailSender)
         {
             _db = db;
+            _emailSender = emailSender;
         }
 
         public async Task<int> AddUpdate(AppointmentVM model)
@@ -53,10 +56,10 @@ namespace DoctorAppointment.Services
                     IsDoctorApproved = false,
                     AdminId = model.AdminId
                 };
-                /*await _emailSender.SendEmailAsync(doctor.Email, "Appointment Created",
+                await _emailSender.SendEmailAsync(doctor.Email, "Appointment Created",
                     $"Your appointment with {patient.Name} is created and in pending status");
                 await _emailSender.SendEmailAsync(patient.Email, "Appointment Created",
-                    $"Your appointment with {doctor.Name} is created and in pending status");*/
+                    $"Your appointment with {doctor.Name} is created and in pending status");
                 _db.Appointments.Add(appointment);
                 await _db.SaveChangesAsync();
                 return 2;
