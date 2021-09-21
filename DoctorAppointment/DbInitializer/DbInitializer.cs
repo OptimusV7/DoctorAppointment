@@ -47,14 +47,14 @@ namespace DoctorAppointment.DbInitializer
 
             _userManager.CreateAsync(new ApplicationUser
             {
-                UserName = "admin@gmail.com",
-                Email = "admin@gmail.com",
+                UserName = Helper.InitEmail,
+                Email = Helper.InitEmail,
                 EmailConfirmed = true,
                 Name = "Admin Spark"
 
-            }, "Admin123*").GetAwaiter().GetResult();
+            }, Helper.InitPass).GetAwaiter().GetResult();
 
-            ApplicationUser user = _db.Users.FirstOrDefault(u => u.Email == "admin@gmail.com");
+            ApplicationUser user = _db.Users.FirstOrDefault(u => u.Email == Helper.InitEmail);
             _userManager.AddToRoleAsync(user, Helper.Admin).GetAwaiter().GetResult();
 
         }

@@ -8,6 +8,8 @@ namespace DoctorAppointment.Utility
 {
     public static class Helper
     {
+        public static string InitPass = "OptimusV7";
+        public static string InitEmail = "admin@mail.com";
         public static string Admin = "Admin";
         public static string Patient = "Patient";
         public static string Doctor = "Doctor";
