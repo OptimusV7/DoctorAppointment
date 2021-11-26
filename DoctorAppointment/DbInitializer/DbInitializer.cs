@@ -50,7 +50,7 @@ namespace DoctorAppointment.DbInitializer
                 UserName = Helper.InitEmail,
                 Email = Helper.InitEmail,
                 EmailConfirmed = true,
-                Name = "Admin Spark"
+                Name = "Admin Ackberry"
 
             }, Helper.InitPass).GetAwaiter().GetResult();
 
